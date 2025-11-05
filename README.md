@@ -1,4 +1,3 @@
-
 # My First Repo!
 
 Learning and practicing version control!
@@ -12,6 +11,7 @@ Navigate to the repo using the command line.
 ```sh
 cd ~/Desktop/my-first-repo-fall-2025
 ```
+
 Create a virtual environment:
 
 ```sh
@@ -46,7 +46,6 @@ python app/rps.py
 # alternative "modular style" command:
 python -m app.rps
 ```
-
 
 ## Testing
 
