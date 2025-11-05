@@ -1,56 +1,63 @@
-# My First Repo!
-
-Learning and practicing version control!
+# my-first-repo-summer-2025
 
 ## Setup
 
-Clone the repo to download it from GitHub. Perhaps onto the Desktop.
+### Virtual Environment
 
-Navigate to the repo using the command line.
+Create and activate a virtual environment:
 
 ```sh
-cd ~/Desktop/my-first-repo-fall-2025
+conda create -n my-first-env-2025 python=3.11
+
+conda activate my-first-env-2025
 ```
 
-Create a virtual environment:
+### Packages
+
+Install packages:
 
 ```sh
-conda create -n my-first-env-fall-2025 python=3.11
-```
+# pip install pytest
 
-Activate the virtual environment:
-
-```sh
-conda activate my-first-env-fall-2025
-```
-
-Install package dependencies:
-
-```sh
 pip install -r requirements.txt
 ```
 
-## Usage
+### Secret Credentials
 
-Example script:
+For the stocks dashboard, you will need to acquire a "premium" [AlphaVantage](https://www.alphavantage.co/) API key (from the prof) and supply it as an environment variable. Create a local ".env" file and place inside contents like the following:
 
 ```sh
-python app/my_script.py
+# this is the ".env" file...
+
+# replace "demo" with your premium key:
+ALPHAVANTAGE_API_KEY="demo"
 ```
 
-Game of rock, paper, scissors:
+Also, for the stocks tests to work on GitHub Actions, you will need to set a repository secret named `ALPHAVANTAGE_API_KEY` via the repository's settings on GitHub.
+
+## Usage
+
+Play a game of rock, paper scissors:
 
 ```sh
+# only works if this file does NOT import from other local py files:
 python app/rps.py
 
-# alternative "modular style" command:
+# if this file imports from other local py files:
 python -m app.rps
 ```
 
-## Testing
-
-Run tests:
+Run the stocks dashboard:
 
 ```sh
+python -m app.stocks
+```
+
+## Tests
+
+Run the tests:
+
+```sh
+# find all the tests and run them:
 pytest
 ```
