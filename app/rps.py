@@ -14,16 +14,16 @@ def determine_winner(u, c):
     elif u == "rock" and c == "scissors":
         result = "USER WINS"
     elif u == "rock" and c == "paper":
-        result = "COMP WINS"
+        result = "COMPUTER WINS"
     elif u == "scissors" and c == "rock":
-        result = "COMP WINS"
+        result = "COMPUTER WINS"
     elif u == "scissors" and c == "paper":
         result = "USER WINS"
     elif u == "paper" and c == "rock":
-        #result = "COMP WINS" # OOPS THAT WAS A BUG :-/
+        #result = "COMPUTER WINS" # OOPS THAT WAS A BUG :-/
         result = "USER WINS" # BUG FIXED!!! :-)
     elif u == "paper" and c == "scissors":
-        result = "COMP WINS"
+        result = "COMPUTER WINS"
     return result
 
 
