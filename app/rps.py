@@ -1,53 +1,46 @@
-import random
+# THIS IS MY ROCK PAPER SCISSORS GAME
+# this is the "app/rps.py" file...
 
+import random
 
 VALID_OPTIONS = ["rock", "paper", "scissors"]
 
+def generate_random_choice():
+    return random.choice(VALID_OPTIONS)
 
 def determine_winner(u, c):
-    if u == "rock" and c == "rock":
-        return "TIE GAME"
-    elif u == "rock" and c == "paper":
-        return "COMPUTER WINS"
+    if u == c:
+        result = "TIE GAME"
     elif u == "rock" and c == "scissors":
-        return "USER WINS"
-    elif u == "paper" and c == "rock":
-        return "USER WINS" # OOPS
-    elif u == "paper" and c == "paper":
-        return "TIE GAME"
-    elif u == "paper" and c == "scissors":
-        return "COMPUTER WINS" # OOPS
+        result = "USER WINS"
+    elif u == "rock" and c == "paper":
+        result = "COMPUTER WINS"
     elif u == "scissors" and c == "rock":
-        return "COMPUTER WINS"
+        result = "COMPUTER WINS"
     elif u == "scissors" and c == "paper":
-        return "USER WINS"
-    elif u == "scissors" and c == "scissors":
-        return "TIE GAME"
+        result = "USER WINS"
+    elif u == "paper" and c == "rock":
+        #result = "COMPUTER WINS" # OOPS THAT WAS A BUG :-/
+        result = "USER WINS" # BUG FIXED!!! :-)
+    elif u == "paper" and c == "scissors":
+        result = "COMPUTER WINS"
+    return result
 
 
+# ONLY RUN THE CODE INDENTED INSIDE
+# ... IF WE ARE RUNNING THIS SCRIPT FROM THE COMMAND LINE
+# ... BUT NOT IF WE ARE IMPORTING
 if __name__ == "__main__":
-    # ONLY RUN THE CODE BELOW
-    # IF WE ARE RUNNING THIS SCRIPT FROM THE COMMAND LINE
-    # BUT NOT IF WE'RE TRYING TO JUST IMPORT SOME STUFF FROM THIS FILE
 
-    # ASK USER FOR AN INPUT (R/P/S)
+    print("WELCOME TO MY GAME...")
 
-    user_choice = input("Please choose one of 'rock', 'paper', or 'scissors': ")
-    print("USER:", user_choice)
+    player_choice = input("Please select an option ('rock', 'paper', 'scissors'): ")
+    print("USER CHOSE:", player_choice)
 
-    # VALIDATIONS
+    # todo: validation step
 
-    if user_choice not in VALID_OPTIONS:
-        print("OOPS INVALID INPUT, PLEASE TRY AGAIN")
-        # exit()
-        quit()
+    computer_choice = generate_random_choice()
+    print("COMPUTER CHOSE:", computer_choice)
 
-    # GENERATE RANDOM COMPUTER CHOICE
-
-    computer_choice = random.choice(VALID_OPTIONS)
-    print("COMP:", computer_choice)
-
-    # DETERMINE THE WINNER
-
-    result = determine_winner(user_choice, computer_choice)
-    print(result)
+    result_message = determine_winner(player_choice, computer_choice)
+    print(result_message)
